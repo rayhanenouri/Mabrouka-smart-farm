@@ -13,11 +13,17 @@
 ### Problem Statement
 Helping small-scale farmers like Mabrouka manage water efficiently through IoT simulation and AI prediction.
 
-### Features
-- 📊 Real-time soil moisture monitoring
-- 🤖 Automated smart pump control
-- 🌐 Remote web dashboard
-- 🔮 AI-powered watering predictions
+| Feature | Description |
+|-------|-----------|
+| 📊**Real-time Monitoring** | Soil moisture, hours until dry, pump status |
+| **Weather Integration** | OpenWeatherMap API (temp, humidity, wind, rain) |
+| 🔮**Smart Forecast** | "Tonight: WATER!" or "All good!" |
+| **Auto Pump Control** | Turns ON/OFF based on soil & weather |
+| **Pro Alerts** | Top-right animated banner: "The land needs water" |
+| **Crop Selection** | Click Tomato / Onion / Mint |
+| 🌐**Droplet Animations** | Rain effect when pump is ON |
+| **Responsive Design** | Works on mobile & desktop |
+| 🔮**Test Page** | `/test` – simulate sensor input |
 
 ### Tech Stack
 - **Backend:** Python, Flask, SQLite
@@ -33,14 +39,17 @@ mabrouka-smart-farm/
 │   ├── pump_controller.py
 │   ├── app.py
 │   └── predictor.py
-├── frontend/
 │   ├── index.html
-│   ├── style.css
-│   └── script.js
 ├── docs/
 └── README.md
 ```
+## How It Works
 
+1. **Weather API** → gets current + forecast
+2. **ET₀ Model** → calculates water loss
+3. **Soil Simulation** → estimates moisture
+4. **Decision Engine** → "Need water?" → Pump ON
+5. **Frontend** → updates every 10s
 ### Installation
 ```bash
 # Clone the repository
